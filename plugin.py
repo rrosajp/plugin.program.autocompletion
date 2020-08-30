@@ -45,7 +45,7 @@ def pass_list_to_skin(data=[], handle=None, limit=False):
     if data:
         items = create_listitems(data)
         xbmcplugin.addDirectoryItems(handle=handle, items=[(i.getProperty("path"), i, False) for i in items], totalItems=len(items))
-
+    xbmc.executebuiltin('Dialog.Close(busydialog)')  # Fix Kodi 18.x 
     xbmcplugin.endOfDirectory(handle)
 
 
